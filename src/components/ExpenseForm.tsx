@@ -54,7 +54,7 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
     'w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-neutral-900'
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-500">
         {editing ? 'Editar gasto' : 'Nuevo gasto'}
       </h2>

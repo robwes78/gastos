@@ -18,8 +18,10 @@ export function DataMenu({ expenses, onImport, onError }: Props) {
     if (!file) return
     try {
       onImport(parseExpenses(await file.text()))
+      onError('')
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'No se pudo leer el archivo')
+      const detail = error instanceof SyntaxError ? '' : error instanceof Error ? `: ${error.message}` : ''
+      onError(`No se pudo importar el archivo${detail}`)
     }
   }
 
