@@ -14,13 +14,13 @@ const LABELS: Record<Period, string> = { day: 'Diario', week: 'Semanal', month: 
 export function PeriodNav({ period, anchor, onPeriodChange, onShift, onToday }: Props) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <div className="inline-flex rounded-xl border border-neutral-200 bg-white p-1">
+      <div className="inline-flex rounded-xl border border-neutral-800 bg-neutral-900 p-1">
         {(Object.keys(LABELS) as Period[]).map((key) => (
           <button
             key={key}
             onClick={() => onPeriodChange(key)}
             className={`rounded-lg px-4 py-1.5 text-sm font-medium transition ${
-              period === key ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:bg-neutral-100'
+              period === key ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-300 hover:bg-neutral-800'
             }`}
           >
             {LABELS[key]}
@@ -31,23 +31,23 @@ export function PeriodNav({ period, anchor, onPeriodChange, onShift, onToday }: 
         <button
           aria-label="Período anterior"
           onClick={() => onShift(-1)}
-          className="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-sm text-neutral-600 transition hover:bg-neutral-100"
+          className="rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-sm text-neutral-300 transition hover:bg-neutral-800"
         >
           &larr;
         </button>
-        <span className="min-w-[12rem] text-center text-sm font-medium capitalize text-neutral-700">
+        <span className="min-w-[12rem] text-center text-sm font-medium capitalize text-neutral-200">
           {formatRange(anchor, period)}
         </span>
         <button
           aria-label="Período siguiente"
           onClick={() => onShift(1)}
-          className="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-sm text-neutral-600 transition hover:bg-neutral-100"
+          className="rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-sm text-neutral-300 transition hover:bg-neutral-800"
         >
           &rarr;
         </button>
         <button
           onClick={onToday}
-          className="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-sm text-neutral-600 transition hover:bg-neutral-100"
+          className="rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-sm text-neutral-300 transition hover:bg-neutral-800"
         >
           Hoy
         </button>

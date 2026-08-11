@@ -17,9 +17,9 @@ export function SummaryCards({ total, count, average, averageLabel }: Props) {
   return (
     <div className="grid gap-3 sm:grid-cols-3">
       {cards.map((card) => (
-        <div key={card.label} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">{card.label}</p>
-          <p className="mt-2 text-2xl font-semibold text-neutral-900">{card.value}</p>
+        <div key={card.label} className="rounded-2xl border border-neutral-800 bg-neutral-900 p-5 shadow-sm">
+          <p className="text-xs uppercase tracking-wide text-neutral-400">{card.label}</p>
+          <p className="mt-2 text-2xl font-semibold text-neutral-50">{card.value}</p>
         </div>
       ))}
     </div>
