@@ -18,13 +18,15 @@ export function DataMenu({ expenses, onImport, onError }: Props) {
     if (!file) return
     try {
       onImport(parseExpenses(await file.text()))
+      onError('')
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'No se pudo leer el archivo')
+      const detail = error instanceof SyntaxError ? '' : error instanceof Error ? `: ${error.message}` : ''
+      onError(`No se pudo importar el archivo${detail}`)
     }
   }
 
   const buttonClass =
-    'rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-600 transition hover:bg-neutral-100'
+    'rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-xs font-medium text-neutral-300 transition hover:bg-neutral-800'
 
   return (
     <div className="flex gap-2">

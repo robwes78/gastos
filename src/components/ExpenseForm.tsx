@@ -51,27 +51,27 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
   }
 
   const inputClass =
-    'w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-neutral-900'
+    'w-full rounded-lg border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 outline-none transition placeholder:text-neutral-600 focus:border-neutral-500'
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-500">
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-neutral-800 bg-neutral-900 p-5 shadow-sm">
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-400">
         {editing ? 'Editar gasto' : 'Nuevo gasto'}
       </h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <label className="block">
-          <span className="mb-1 block text-xs text-neutral-500">Importe</span>
+          <span className="mb-1 block text-xs text-neutral-400">Importe</span>
           <input
             className={inputClass}
             inputMode="decimal"
-            placeholder="0,00"
+            placeholder="0.00"
             aria-label="Importe"
             value={form.amount}
             onChange={(event) => setForm({ ...form, amount: event.target.value })}
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-xs text-neutral-500">Categoría</span>
+          <span className="mb-1 block text-xs text-neutral-400">Categoría</span>
           <select
             className={inputClass}
             aria-label="Categoría"
@@ -86,7 +86,7 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
           </select>
         </label>
         <label className="block">
-          <span className="mb-1 block text-xs text-neutral-500">Fecha</span>
+          <span className="mb-1 block text-xs text-neutral-400">Fecha</span>
           <input
             type="date"
             className={inputClass}
@@ -96,7 +96,7 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-xs text-neutral-500">Nota</span>
+          <span className="mb-1 block text-xs text-neutral-400">Nota</span>
           <input
             className={inputClass}
             placeholder="Opcional"
@@ -106,11 +106,11 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
           />
         </label>
       </div>
-      {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
       <div className="mt-4 flex gap-2">
         <button
           type="submit"
-          className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700"
+          className="rounded-lg bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-white"
         >
           {editing ? 'Guardar cambios' : 'Añadir gasto'}
         </button>
@@ -118,7 +118,7 @@ export function ExpenseForm({ editing, onSubmit, onCancelEdit }: Props) {
           <button
             type="button"
             onClick={onCancelEdit}
-            className="rounded-lg border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-600 transition hover:bg-neutral-100"
+            className="rounded-lg border border-neutral-800 px-4 py-2 text-sm font-medium text-neutral-300 transition hover:bg-neutral-800"
           >
             Cancelar
           </button>
