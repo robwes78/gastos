@@ -81,13 +81,13 @@ export default function App() {
     <div className="mx-auto flex min-h-screen max-w-5xl flex-col gap-5 px-4 py-8">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Mis Gastos</h1>
-          <p className="text-sm text-neutral-500">Registro diario, semanal y mensual. Todo se guarda en tu navegador.</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-neutral-50">Mis Gastos</h1>
+          <p className="text-sm text-neutral-400">Registro diario, semanal y mensual. Todo se guarda en tu navegador.</p>
         </div>
         <DataMenu expenses={expenses} onImport={replaceExpenses} onError={setNotice} />
       </header>
 
-      {notice && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{notice}</p>}
+      {notice && <p className="rounded-lg border border-red-900/60 bg-red-950/40 px-3 py-2 text-sm text-red-400">{notice}</p>}
 
       <ExpenseForm editing={editing} onSubmit={handleSubmit} onCancelEdit={() => setEditing(null)} />
 
